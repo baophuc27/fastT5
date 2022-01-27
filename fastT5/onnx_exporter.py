@@ -184,6 +184,7 @@ def generate_onnx_representation(
             input_names=decoder_input_names,
             output_names=decoder_output_names,
             dynamic_axes=dyn_axis_params,
+            use_external_data_format=True
         )
         bar.next()
 
@@ -201,6 +202,7 @@ def generate_onnx_representation(
                 "attention_mask": dyn_axis_general,
                 "hidden_states": dyn_axis_general,
             },
+            use_external_data_format=True
         )
         bar.next()
         # initial decoder to produce past key values
@@ -224,6 +226,7 @@ def generate_onnx_representation(
                 "logits": dyn_axis_general,
                 "past_key_values": dyn_axis_general,
             },
+            use_external_data_format=True
         )
         bar.next()
         bar.finish()
